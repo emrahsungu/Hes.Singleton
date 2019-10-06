@@ -41,6 +41,7 @@
     <Compile Include="ParameterfulCtor.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TryCatch.cs" />
     <Compile Include="WithPublicCtor.cs" />
   </ItemGroup>
   <ItemGroup>

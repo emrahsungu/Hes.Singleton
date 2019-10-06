@@ -32,13 +32,15 @@ namespace Hes.Singleton {
         }
 
         /// <summary>
+        /// Gets the Instance of given type.
         /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <returns></returns>
+        /// <typeparam name="T">Type to get.</typeparam>
+        /// <returns>The instance of T, implementing <see cref="SingletonBase{T}"/></returns>
+        /// <exception cref="NotRegisteredTypeException">Throws if the type being registered is not registered.</exception>
         [ThreadSafe]
         public T Get<T>() where T : SingletonBase<T> {
             if (_cache.TryGetValue(typeof(T), out var value)) {
-                return (T) value.Value;
+                return (T)value.Value;
             }
             throw new NotRegisteredTypeException(typeof(T));
         }

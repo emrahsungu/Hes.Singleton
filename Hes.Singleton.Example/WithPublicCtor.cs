@@ -1,9 +1,7 @@
 ﻿namespace Hes.Singleton.Example {
-    public class WithPublicCtor : SingletonBase<WithPublicCtor>
-    {
+    public class WithPublicCtor : SingletonBase<WithPublicCtor> {
 
-        public WithPublicCtor()
-        {
+        public WithPublicCtor() {
 
         }
     }

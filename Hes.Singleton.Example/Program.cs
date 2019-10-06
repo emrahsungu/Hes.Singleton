@@ -1,24 +1,28 @@
-﻿using System;
-using System.Text;
-using System.Threading.Tasks;
-using Hes.Singleton;
+﻿namespace Hes.Singleton.Example {
+    internal static class Program {
+        private static readonly SingletonManager Manager = SingletonManager.Instance;
 
-namespace Hes.Singleton.Example {
-    class Program
-    {
-        static void Main(string[] args) {
+        private static void Main(string[] args) {
 
+            Manager.Register<WithPublicCtor>();
+            Manager.Register<ParameterfulCtor>();
+            Manager.Register<GameManager>();
 
-            var managers = SingletonManager.Instance;
-            managers.Register<ParameterfulCtor>();
-            var poar = managers.Get<GameManager>();
-            try{
-                var singleTonWithPublicCtor = WithPublicCtor.Instance;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"{ex.GetType()} : {ex.Message}");
-            }
+            TryCatch.Do(() => {
+                var publicCtor = Manager.Get<WithPublicCtor>();
+                var str = publicCtor.ToString();
+            });
+
+            TryCatch.Do(() => {
+                var parameterfulCtor = Manager.Get<ParameterfulCtor>();
+                var str = parameterfulCtor.ToString();
+            });
+
+            TryCatch.Do(() => {
+                var gameMager = Manager.Get<GameManager>();
+                gameMager.Initialize();
+                gameMager.Update();
+            });
         }
     }
 }

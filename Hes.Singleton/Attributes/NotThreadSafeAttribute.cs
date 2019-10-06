@@ -1,15 +1,12 @@
 ﻿using System;
 
 namespace Hes.Singleton.Attributes {
-    [AttributeUsage(AttributeTargets.Method|AttributeTargets.Class)]
-    public class NotThreadSafeAttribute : Attribute {
     
-        /// <summary>
-        /// 
-        /// </summary>
-        public NotThreadSafeAttribute()
-        {
-
-        }
+    /// <summary>
+    /// Indicates the implementation is not thread safe.
+    /// </summary>
+    [AttributeUsage(AttributeTargets.Method | AttributeTargets.Class)]
+    public class NotThreadSafeAttribute : Attribute {
+      
     }
 }

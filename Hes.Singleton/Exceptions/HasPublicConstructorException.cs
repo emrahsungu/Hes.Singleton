@@ -2,6 +2,7 @@
 
 namespace Hes.Singleton.Exceptions {
     public sealed class HasPublicConstructorException : ConstructorException {
+       
         /// <summary>
         /// Placeholder for strign to be formatted for exception message.
         /// </summary>
